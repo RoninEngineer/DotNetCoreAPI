@@ -31,5 +31,9 @@
     <ProjectReference Include="..\DotNetCoreAPI.Engine\DotNetCoreAPI.Engine.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 
 </Project>
