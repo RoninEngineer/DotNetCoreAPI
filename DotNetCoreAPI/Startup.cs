@@ -1,5 +1,7 @@
+using Azure.Data.Tables;
 using DotNetCoreAPI.Common.AppSettings;
 using DotNetCoreAPI.Common.Interface;
+using DotNetCoreAPI.Data.Resource;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,12 +34,19 @@ namespace DotnetCoreAPI.Service
 
             services.AddMvc().AddFluentValidation();
 
+            var connectionString = Configuration.GetConnectionString("CosmosTableApi");
+            services.AddSingleton<TableClient>(new TableClient(connectionString, "IntegrationData"));
+            services.AddSingleton<TableStorageContext>();
+
+
             #region Injection registration
             services.AddTransient<IAppSettingsService, AppServiceSettings>();
+
             // Register Repositories
             
 
             // Register Engines
+
             
             // Register validators
             
