@@ -10,17 +10,13 @@ namespace DotNetCoreAPI.Domain.Dto.Tables
     public class IntegrationData : TableEntity
     {
 
-		public IntegrationData(string description, string functionInvocationId)
+		public IntegrationData(string IntegrationType, string Description)
 		{
-			this.PartitionKey = description;
-			this.RowKey = functionInvocationId;
+			this.PartitionKey = IntegrationType;
+			this.RowKey = Description;
 		}
 
 		public bool? Active { get; set; }
-
-		public string Type { get; set; }
-
-		public string Description { get; set; }
 
 		public int? SequenceId { get; set; }
 
